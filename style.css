@@ -298,7 +298,7 @@ h3 {
 }
 
 .section, .menu-category, .gallery-item, .testimonial {
-    animation: fadeIn 0.8s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Contact Form Container */
@@ -437,7 +437,7 @@ h3 {
 }
 
 .confirmation-icon {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     animation: scaleIn 0.5s ease-in-out;
 }
 
@@ -475,7 +475,7 @@ h3 {
     height: 3px;
     width: 0;
     background-color: #ff6b35;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 /* Responsive Adjustments */
