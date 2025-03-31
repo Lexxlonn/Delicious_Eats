@@ -156,18 +156,25 @@
             <p>Have questions or want to make a reservation? Reach out to us!</p>
             <div class="contact-form">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message"></textarea>
+                    <select id="reason" name="reason">
+                        <option value="" disabled selected>Reason for Contact</option>
+                        <option value="reservation">Make a Reservation</option>
+                        <option value="feedback">Provide Feedback</option>
+                        <option value="inquiry">General Inquiry</option>
+                        <option value="catering">Catering Services</option>
+                    </select>
                 </div>
-                <button type="submit">Send Message</button>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" id="submit-button">Send Message</button>
+                <div id="confirmation-message" class="hidden">Thank you for reaching out! We'll get back to you shortly.</div>
             </div>
         </section>
     </div>
@@ -183,5 +190,39 @@
             <p>&copy; 2025 Delicious Eats. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Add loading state to button
+            submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+            submitButton.disabled = true;
+            
+            // Simulate form submission (replace with actual form submission)
+            setTimeout(function() {
+                submitButton.innerHTML = 'Message Sent!';
+                
+                // Show confirmation message
+                confirmationMessage.classList.remove('hidden');
+                confirmationMessage.classList.add('show');
+                
+                // Reset form
+                form.reset();
+                
+                // Reset button after delay
+                setTimeout(function() {
+                    submitButton.innerHTML = 'Send Message';
+                    submitButton.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    });
+    </script>
 </body>
 </html>
