@@ -6,6 +6,16 @@
     <title>Delicious Eats</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    });
+</script>
 <body>
     <header>
         <div class="logo">Delicious Eats</div>
