@@ -215,10 +215,17 @@ h3 {
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Modern Contact Form Styles */
-.contact-form {
+/* Contact Form Container */
+.contact-form-container {
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
+    min-height: 400px;
+}
+
+/* Modern Contact Form Styles */
+.contact-form {
+    width: 100%;
 }
 
 .form-group {
@@ -254,7 +261,8 @@ h3 {
     resize: vertical;
 }
 
-.contact-form button {
+.contact-form button,
+.confirmation-screen button {
     background: linear-gradient(to right, #ff6b35, #ff8c42);
     color: white;
     border: none;
@@ -269,12 +277,14 @@ h3 {
     position: relative;
 }
 
-.contact-form button:hover {
+.contact-form button:hover,
+.confirmation-screen button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(255, 107, 53, 0.4);
 }
 
-.contact-form button:active {
+.contact-form button:active,
+.confirmation-screen button:active {
     transform: translateY(1px);
 }
 
@@ -283,33 +293,46 @@ h3 {
     cursor: not-allowed;
 }
 
-/* Confirmation message styles */
-#confirmation-message {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 8px;
-    background-color: #eaffea;
-    color: #2a7d2a;
+/* Confirmation Screen Styles */
+.confirmation-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-weight: 500;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-#confirmation-message.hidden {
-    opacity: 0;
-    height: 0;
-    padding: 0;
-    margin-top: 0;
+.confirmation-screen h3 {
+    font-size: 1.8rem;
+    color: #ff6b35;
+    margin: 1rem 0;
 }
 
-#confirmation-message.show {
-    opacity: 1;
-    height: auto;
-    padding: 1rem;
+.confirmation-screen p {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.confirmation-screen button {
     margin-top: 1.5rem;
+    max-width: 250px;
+}
+
+.confirmation-icon {
+    margin-bottom: 1rem;
+    animation: scaleIn 0.5s ease-in-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 /* Loading spinner */
@@ -356,7 +379,7 @@ h3 {
         margin: 5px 0;
     }
     
-    .contact-form {
+    .contact-form-container {
         padding: 0 10px;
     }
 }
@@ -372,5 +395,13 @@ h3 {
     
     header {
         padding: 2rem 0;
+    }
+    
+    .confirmation-screen h3 {
+        font-size: 1.5rem;
+    }
+    
+    .confirmation-screen p {
+        font-size: 1rem;
     }
 }
